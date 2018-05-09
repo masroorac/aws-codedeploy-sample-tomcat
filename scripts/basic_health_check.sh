@@ -3,7 +3,7 @@
 for i in `seq 1 10`;
 do
   HTTP_CODE=`curl --write-out '%{http_code}' -o /dev/null -m 10 -q -s http://localhost:80`
-  if [ "$HTTP_CODE" == "200" ]; then
+  if [ "$HTTP_CODE" == "200" ] || [ "$HTTP_CODE" == "403" ]; then
     echo "Successfully pulled root page."
     exit 0;
   fi
